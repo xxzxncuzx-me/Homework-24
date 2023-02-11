@@ -1,0 +1,25 @@
+select {
+    padding: 5px;
+    border-radius: 3px;
+    border: 2px solid rgb(244, 168, 227);
+    background-color: rgb(244, 168, 227);
+    transition: 0.3s;
+    color: rgb(181, 0, 142);
+}
+
+select:hover {
+    background-color: rgb(249, 194, 237);
+}
+
+select:active {
+    border: 2px solid rgb(244, 168, 227);
+}
+
+table {
+    color: rgb(72, 69, 69);
+    margin-top: 5px;
+    border: 2px solid rgb(244, 168, 227);
+}
+
+
+    
