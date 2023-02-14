@@ -1,10 +1,13 @@
+* {
+  color: rgb(181, 0, 142);  
+}
+
 select {
     padding: 5px;
     border-radius: 3px;
     border: 2px solid rgb(244, 168, 227);
     background-color: rgb(244, 168, 227);
-    transition: 0.3s;
-    color: rgb(181, 0, 142);
+    transition: 0.3s; 
 }
 
 select:hover {
@@ -16,9 +19,15 @@ select:active {
 }
 
 table {
-    color: rgb(72, 69, 69);
     margin-top: 5px;
-    border: 2px solid rgb(244, 168, 227);
+    border-collapse: collapse;
+}
+
+table tr td {
+    width: 85px;
+    text-align: center;
+    padding: 5px 10px;
+    border-bottom: 2px solid rgb(244, 168, 227); 
 }
 
 
