@@ -10,11 +10,53 @@ const languages = [{
     text: 'English'
 }, {
     value: 'uk',
-    text: 'Українська'
+    text: 'Ukrainian'
 }, {
     value: 'gre',
-    text: 'Ελληνικά'
-}]
+    text: 'Greek'
+},{
+    value: 'cs',
+    text: 'Czech'
+},{
+    value: 'zh',
+    text: 'Chinese'
+},{
+    value: 'bg',
+    text: 'Bulgarian'
+},{
+    value: 'ja',
+    text: 'Japanese'
+},{
+    value: 'it',
+    text: 'Italian'
+},{
+    value: 'lt',
+    text: 'Lithuanian'
+},{
+    value: 'fr',
+    text: 'French'
+},{
+    value: 'pt',
+    text: 'Portuguese'
+},{
+    value: 'de',
+    text: 'German'
+},{
+    value: 'es',
+    text: 'Spanish'
+},{
+    value: 'et',
+    text: 'Estonian'
+},{
+    value: 'hi',
+    text: 'Hindi'
+},{
+    value: 'pl',
+    text: 'Polish'
+},{
+    value: 'vi',
+    text: 'Vietnamese'
+},]
 
 for (let j = 0; j < selectArr.length; j++) {
     for (let i = 0; i < languages.length; i++) {
@@ -39,38 +81,35 @@ function createTable(selectArr) {
             td.textContent += date.toLocaleString(selectArr[j].value, {
                 month: 'long'
             })
-
-            selectFrom.addEventListener('change', () => {
-                td.textContent = date.toLocaleString(selectArr[j].value, {
-                    month: 'long'
-                })
-                for (let n = 0; n < selectTo.options.length; n++) {
-                    if (selectFrom.value === selectTo.value) {
-                        selectTo.selectedIndex = i + n
-                        td.textContent = date.toLocaleString(selectArr[j].value, {
-                            month: 'long'
-                        })
-                    }
-                }
-            })
-
-            selectTo.addEventListener('change', (event) => {
-                td.textContent = date.toLocaleString(selectArr[j].value, {
-                    month: 'long'
-                })
-                for (let k = 0; k < selectFrom.options.length; k++) {
-                    if (selectTo.value === selectFrom.value) {
-                        selectFrom.selectedIndex = k + 1
-                        td.textContent = date.toLocaleString(selectFrom.value, {
-                            month: 'long'
-                        })
-                    }
-                }
-            })
             tr.appendChild(td)
         }
         table.appendChild(tr)
     }
 }
-
 createTable(selectArr)
+
+selectFrom.addEventListener('change', () => {
+    for (let n = 0; n < selectTo.options.length; n++) {
+        if (selectFrom.value === selectTo.value) {
+            selectTo.selectedIndex = n + 1
+            table.innerHTML = ''
+            createTable(selectArr)
+        } else {
+            table.innerHTML = ''
+            createTable(selectArr)
+        }
+    }
+})
+
+selectTo.addEventListener('change', () => {
+    for (let k = 0; k < selectFrom.options.length; k++) {
+        if (selectTo.value === selectFrom.value) {
+            selectFrom.selectedIndex = k + 1
+            table.innerHTML = ''
+            createTable(selectArr)
+        } else {
+            table.innerHTML = ''
+            createTable(selectArr)
+        }
+    }
+})
