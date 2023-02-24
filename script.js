@@ -90,26 +90,36 @@ createTable(selectArr)
 
 selectFrom.addEventListener('change', () => {
     for (let n = 0; n < selectTo.options.length; n++) {
-        if (selectFrom.value === selectTo.value) {
-            selectTo.selectedIndex = n + 1
-            table.innerHTML = ''
-            createTable(selectArr)
-        } else {
-            table.innerHTML = ''
-            createTable(selectArr)
-        }
+      if (selectFrom.value === selectTo.value) {
+        selectTo.selectedIndex = n + 1
+      } else {
+        break
+      }
     }
-})
+  
+    table.innerHTML = ''
+    createTable(selectArr)
+  })
 
 selectTo.addEventListener('change', () => {
-    for (let k = 0; k < selectFrom.options.length; k++) {
-        if (selectTo.value === selectFrom.value) {
-            selectFrom.selectedIndex = k + 1
-            table.innerHTML = ''
-            createTable(selectArr)
-        } else {
-            table.innerHTML = ''
-            createTable(selectArr)
-        }
+    if (selectTo.value === selectFrom.value)  {
+      selectFrom.selectedIndex = (selectTo.selectedIndex || selectTo.options.length) - 1
     }
-})
+  
+    table.innerHTML = ''
+    createTable(selectArr)
+  })
+// selectTo.addEventListener('change', () => {
+//     for (let k = 0; k < selectFrom.options.length; k++) {
+//         if (selectTo.value === selectFrom.value) {
+//             selectFrom.selectedIndex = k + 1
+//             table.innerHTML = ''
+//             createTable(selectArr)
+//         } else {
+//             table.innerHTML = ''
+//             createTable(selectArr)
+//         }
+//     }
+// })
+
+
